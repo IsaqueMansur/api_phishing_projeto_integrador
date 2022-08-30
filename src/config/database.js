@@ -11,7 +11,7 @@ module.exports = {
     timestamps: true,
     underscored: true,
     underscoredAll: true,
-    createAt: 'created_at',
+    createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
   dialectOptions: {

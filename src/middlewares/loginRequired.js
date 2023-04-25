@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
+import User from '../models/CapturedEmail';
 
 export default async (req, res, next) => {
   const { authorization } = req.headers;

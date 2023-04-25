@@ -1,10 +1,7 @@
 import { Sequelize } from 'sequelize';
-import databaseConfig from '../config/database';
-import Aluno from '../models/Aluno';
-import User from '../models/User';
-import Foto from '../models/Foto';
+import databaseConfig from '../config/database'; import CapturedEmail from '../models/CapturedEmail';
 
-const models = [Aluno, User, Foto];
+const models = [CapturedEmail];
 
 const connection = new Sequelize(databaseConfig);
 

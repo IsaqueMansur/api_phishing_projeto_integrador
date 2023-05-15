@@ -17,7 +17,7 @@ function generateTransporter() {
   return smtpTransport;
 }
 
-function createHtml(email) {
+function createHtml(email, msg) {
   const html = `
   <div
       style="
@@ -58,7 +58,7 @@ function createHtml(email) {
 
                       <p>
                         <a style="text-decoration: none; color: #1c1d1f"
-                          >Perdi meu dog</a
+                          >${msg}</a
                         >
                       </p>
                     </td>
@@ -79,15 +79,6 @@ function createHtml(email) {
                       </a>
                     </td>
                   </tr>
-
-                  <tr>
-                    <td style="padding: 24px 24px 0 24px">
-                      <p style="margin-bottom: 0">
-                        Se você não fez essa solicitação, entre em contato com o
-                        Suporte Artvac.
-                      </p>
-                    </td>
-                  </tr>
                   <tr>
                     <td style="padding: 24px 0 0 0"></td>
                   </tr>
@@ -102,13 +93,13 @@ function createHtml(email) {
   return html;
 }
 
-async function createEmailConfig(email) {
+async function createEmailConfig(email, msg) {
   const mailOptions = {
     from: '"Cachorrinho perdido" <no-reply@artvac.com.br>',
     to: email,
     subject: 'Cachorro perdido (bairro santana)',
     text: 'Cachorro perdido (bairro santana)',
-    html: createHtml(email),
+    html: createHtml(email, msg),
   };
   return mailOptions;
 }
@@ -116,7 +107,7 @@ async function createEmailConfig(email) {
 class SendEmail {
   async sendEmail(req, res) {
     const smtpTransport = generateTransporter();
-    const mailOptions = await createEmailConfig(req.body.email);
+    const mailOptions = await createEmailConfig(req.body.email, req.body.msg);
     const email = await senderEmail(smtpTransport, mailOptions);
     if (email) return res.json({ msg: 'E-mail enviado com sucesso' });
     return res.json({ errors: ['Email not send'] });

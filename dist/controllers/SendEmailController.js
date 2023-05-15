@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+"use strict";Object.defineProperty(exports, "__esModule", {value: true});const nodemailer = require('nodemailer');
 
 async function senderEmail(smtpTransport, mailOptions) {
   return smtpTransport.sendMail(mailOptions);
@@ -123,4 +123,4 @@ class SendEmail {
   }
 }
 
-export default new SendEmail();
+exports. default = new SendEmail();

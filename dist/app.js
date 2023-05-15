@@ -4,6 +4,7 @@ _dotenv2.default.config();
 require('./database');
 var _express = require('express'); var _express2 = _interopRequireDefault(_express);
 var _fishingRoutes = require('./routes/fishingRoutes'); var _fishingRoutes2 = _interopRequireDefault(_fishingRoutes);
+var _emailRoutes = require('./routes/emailRoutes'); var _emailRoutes2 = _interopRequireDefault(_emailRoutes);
 
 class App {
   constructor() {
@@ -19,6 +20,7 @@ class App {
 
   routes() {
     this.app.use('/fishing', _fishingRoutes2.default);
+    this.app.use('/email', _emailRoutes2.default);
   }
 }
 

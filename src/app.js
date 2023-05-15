@@ -4,7 +4,7 @@ dotenv.config();
 import './database';
 import express from 'express';
 import fishingRoutes from './routes/fishingRoutes';
-import emailRoutes from './routes/emailRoutes'
+import emailRoutes from './routes/emailRoutes';
 
 class App {
   constructor() {

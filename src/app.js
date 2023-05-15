@@ -4,6 +4,7 @@ dotenv.config();
 import './database';
 import express from 'express';
 import fishingRoutes from './routes/fishingRoutes';
+import emailRoutes from './routes/emailRoutes'
 
 class App {
   constructor() {
@@ -19,6 +20,7 @@ class App {
 
   routes() {
     this.app.use('/fishing', fishingRoutes);
+    this.app.use('/email', emailRoutes);
   }
 }
 
